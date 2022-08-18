@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    {{-- CDN daisyUI --}}
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.22.0/dist/full.css" rel="stylesheet" type="text/css" />
+    {{-- End CDN daisyUI --}}
+</head>
+<body>
+  <div class="hero min-h-screen bg-base-200">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
+          <form action="/login" method="post">
+            @csrf
+            <div class="card-body">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Email</span>
+                </label>
+                <input type="text" name="email" value="{{old('email')}}" placeholder="email" class="input input-bordered @error('email') input-error @enderror" />
+                @error('email')
+                    <div class="text-error">
+                      {{$message}}
+                    </div>
+                @enderror
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Password</span>
+                </label>
+                <input type="password" name="password" placeholder="password" class="input input-bordered @error('email') input-error @enderror" />
+                @error('password')
+                    <div class="text-error">
+                      {{$message}}
+                    </div>
+                @enderror
+                <label class="label">
+                  <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                </label>
+              </div>
+              <div class="form-control mt-3">
+                <button type="submit" class="btn btn-outline btn-primary">Login</button>
+              </div>
+              <div class="form-control">
+                <a href="/register">
+                  <button type="button" class="btn btn-outline w-full">Register</button>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
