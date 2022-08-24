@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Peminjam_Model extends Model
 {
     //
-    protected $table = 'Peminjam';
+    protected $table = 'peminjam';
     protected $primaryKey = 'id';
-    protected $fillable = ['id','mahasiswa_nim','id_buku','tgl_pinjam','tgl_kembali'];
+    protected $fillable = ['id','mahasiswa_nim','buku_id','tgl_pinjam','tgl_kembali'];
     public $timestamps = false;
 
     public function mahasiswa()
